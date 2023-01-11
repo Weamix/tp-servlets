@@ -5,7 +5,7 @@ import entity.PostEntity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostRepository {
+public class PostRedditRepository {
 
     public List<PostEntity> fetchAll() {
         List<PostEntity> postEntityList = new ArrayList<>();

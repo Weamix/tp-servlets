@@ -6,34 +6,35 @@ import dto.SubRedditDTO;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
-import repository.PostRepository;
 import service.RedditService;
 
 import java.util.List;
 
-@Path("/subreddit")
-public class SubRedditController {
+@Path("/reddit")
+public class RedditController {
 
-    private final RedditService subRedditService = new RedditService();
+    private final RedditService redditService = new RedditService();
 
     @GET
+    @Path("/subs")
     @Produces("application/json")
-    public List<SubRedditDTO> getAllSubReddit() {
-        return subRedditService.fetchAllSubReddit();
+    public List<SubRedditDTO> getAllSubs() {
+        return redditService.fetchAllSubs();
     }
 
-    @Path("/posts")
+
     @GET
+    @Path("/posts")
     @Produces("application/json")
     public List<PostDTO> getAllPosts() {
-        return subRedditService.fetchAllPosts();
+        return redditService.fetchAllPosts();
     }
 
-    @Path("/3")
+    @Path("/posts/3")
     @GET
     @Produces("application/json")
     public List<RedditDTO> getThreePosts() {
-        return subRedditService.fetchThreePosts();
+        return redditService.fetchThreePosts();
     }
 
 }
